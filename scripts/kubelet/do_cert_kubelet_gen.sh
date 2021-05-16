@@ -14,8 +14,7 @@ cfssl gencert  \
       -ca=${FILE_CA}          \
       -profile=kubernetes     \
       -hostname=${NODE_NAME}  \
-      ${FILE_NODE_CSR}
-      | cfssljson -bare ${NODE_NAME}
+      ${FILE_NODE_CSR}  |  cfssljson -bare ${NODE_NAME}
 
 
 
