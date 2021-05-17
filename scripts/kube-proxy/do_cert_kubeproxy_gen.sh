@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 
-cfssl gencert \
-  -ca=ca.pem \
-  -ca-key=ca-key.pem \
-  -config=ca_config.json \
-  -profile=kubernetes \
-  kube-proxy_csr.json | cfssljson -bare kube-proxy
+
+NODE_NAME="kube-proxy"
+
+FILE_CONFIG=ca_config.json
+FILE_CA_KEY=ca-key.pem
+FILE_CA=ca.pem
+FILE_NODE_CSR=${NODE_NAME}_csr.json
+
+cfssl gencert  \
+      -loglevel=0  \
+      -config=${FILE_CONFIG}  \
+      -ca-key=${FILE_CA_KEY}  \
+      -ca=${FILE_CA}          \
+      -profile=kubernetes     \
+      ${FILE_NODE_CSR}  |  cfssljson -bare ${NODE_NAME}
+
+
 
 # STRIKR commentary
 #
-# generate kube-proxy certificates
+# generate kube-proxy certificate and key.
