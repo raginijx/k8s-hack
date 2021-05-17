@@ -26,4 +26,6 @@ EOF
 # STRIKR commentary
 #
 # generate JSON for kubelet client CSR.
+# CN: "system-node:"  (must begin with)
+# "O": "system:nodes" (must be as is)
 #
