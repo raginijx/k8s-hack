@@ -7,7 +7,7 @@ NODE_NAME="kube-controller-manager"
 cat > ${NODE_NAME}_csr.json <<EOF
 {
       "CN" : "system:${NODE_NAME}",
-      "Key": {
+      "key": {
              "algo" : "rsa",
              "size" : 2048
       },
