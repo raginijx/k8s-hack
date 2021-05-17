@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cfssl gencert \
   -ca=ca.pem \
   -ca-key=ca-key.pem \

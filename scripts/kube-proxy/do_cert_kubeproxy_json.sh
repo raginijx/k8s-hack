@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cat > kube-proxy_csr.json <<EOF
 {
   "CN": "system:kube-proxy",
